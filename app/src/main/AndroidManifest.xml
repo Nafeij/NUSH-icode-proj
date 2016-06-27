@@ -1,0 +1,75 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jiefanproj.android.embutton_master2">
+
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23"/>
+
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+
+    <application android:allowBackup="true" android:icon="@drawable/icon_calculator" android:label="@string/app_name" android:name=".ApplicationSettings" android:theme="@android:style/Theme.Light.NoTitleBar">
+
+        <activity android:excludeFromRecents="true" android:label="@string/app_name_setup" android:name="com.jiefanproj.android.embutton_master2.HomeActivity" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            </intent-filter>
+        </activity>
+
+        <activity-alias android:enabled="true" android:icon="@drawable/icon_setup" android:label="@string/app_name_setup" android:name=".HomeActivity-setup" android:targetActivity="com.jiefanproj.android.embutton_master2.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias android:enabled="false" android:icon="@drawable/icon_calculator" android:label="@string/app_name" android:name=".HomeActivity-calculator" android:targetActivity="com.jiefanproj.android.embutton_master2.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity android:excludeFromRecents="true" android:name="com.jiefanproj.android.embutton_master2.WizardActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:name="com.jiefanproj.android.embutton_master2.WizardModalActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.jiefanproj.android.embutton_master2.CalculatorActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:name="com.jiefanproj.android.embutton_master2.LoginActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:name="com.jiefanproj.android.embutton_master2.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:name="com.jiefanproj.android.embutton_master2.MainModalActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent"/>
+
+        <service android:name="com.jiefanproj.android.embutton_master2.trigger.HardwareTriggerService"/>
+
+        <receiver android:enabled="true" android:exported="false" android:name="com.jiefanproj.android.embutton_master2.trigger.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:enabled="true" android:exported="false" android:name="com.jiefanproj.android.embutton_master2.location.LocationUpdateReceiver">
+            <intent-filter>
+                <action android:name="com.jiefanproj.android.embutton_master2.LOCATION_UPDATE_ACTION"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:enabled="true" android:exported="false" android:name="com.jiefanproj.android.embutton_master2.alert.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.jiefanproj.android.embutton_master2.SEND_ALERT_ACTION"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.jiefanproj.android.embutton_master2.SEND_ALERT_ACTION_SINGLE"/>
+            </intent-filter>
+        </receiver>
+
+
+    </application>
+
+</manifest>
