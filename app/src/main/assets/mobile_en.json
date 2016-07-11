@@ -525,7 +525,7 @@
                         "link": "setup-warning"
                     }
                 ],
-                "content": "<p><img src=\"/media/mobile/home-not-configured-small.png\" alt=\"Illustration\"> EM button is an Android app that secretly alerts your contacts when you are in trouble. When triggered, it will sends alerts every 5 minutes with your location. The app stays hidden on your phone by looking like a simple calculator.</p>"
+                "content": "<p><img src=\"/media/mobile/home-not-configured-small.png\" alt=\"Illustration\"> EM button is an Android app that secretly alerts your contacts when you are in trouble. When triggered, it will sends alerts every 5 minutes with your location. The app stays hidden on your phone by looking like a calculator.</p>"
             },
             {
                 "id": "home-alerting",
